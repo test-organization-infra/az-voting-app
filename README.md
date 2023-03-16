@@ -166,6 +166,4 @@ kubectl get service azure-vote-front --watch
 11. Initially the EXTERNAL-IP for the azure-vote-front service shows as pending. When the EXTERNAL-IP address changes from pending to an actual public IP address, use CTRL-C to stop the kubectl watch process. The following example output shows a valid public IP address assigned to the service:
 <img width="632" alt="image" src="https://user-images.githubusercontent.com/116659371/225756173-abe33860-4110-42cc-af3a-7221d30ff948.png">
 12. To see the application in action, open a web browser to the external IP address of your service.
-![image](https://user-images.githubusercontent.com/116659371/225756487-f25dc962-8dfb-4ff0-acd1-d13066962e16.png)
 
-12. To see the application in action, open a web browser to the external IP address of your service.
