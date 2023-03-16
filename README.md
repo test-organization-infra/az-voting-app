@@ -6,30 +6,29 @@ The purpose of this app is to know what is the most preferred way to learn by: L
 
 ## Architecture
 
-![Architecture diagram](architecture.png)
-
 * A front-end web app in [Python](/vote) which lets you vote between two options
 * A [Redis](https://hub.docker.com/_/redis/) which collects new votes
-* A [.NET](/worker/) worker which consumes votes and stores them in…
-* A [Postgres](https://hub.docker.com/_/postgres/) database backed by a Docker volume
-* A [Node.js](/result) web app which shows the results of the voting in real time
 
 ## Challenge
 The goal of the challenge is to deploy this distributed application into AWS cloud provider, using:
 - Use [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started) for create the azure infrastructure.
 - Use ACR (https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest) for container image private registry managers
 - Use AKS (https://azure.microsoft.com/en-us/products/kubernetes-service/) for hosting Kuberntes.
+
 ## AWS Architecture solution
 
 This solution is created in location "eastus":
 - ACR as docker images repository.
 - AKS for orchestration docker images.
+
 ## Implement solution
 ## Prepare application for AKS
 1. Cloning this repository in local machine: https://github.com/Azure-Samples/azure-voting-app-redis.git
+
 ## Create container images
 2. Enter de folder zure-voting-app-redis, run docker-compose up -d
 3. test application locally http://localhost:8080/
+
 ## Create container registry ACR
 4. For this case you can use az cli or terraform, its necesary first create a resource group
 ```shell
