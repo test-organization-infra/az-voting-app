@@ -12,31 +12,30 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "group-infra" {
-  name     = "example"
-  location = "eastus"
+  name     = var.name
+  location = var.location
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = "infrarepo01"
+  name                = "infrarepo01" #this name cannot contain alphanumeric and can must unique
   resource_group_name = azurerm_resource_group.group-infra.name
   location            = azurerm_resource_group.group-infra.location
-  sku                 = "Basic"
-  #admin_enabled       = false
+  sku                 = var.sku
 }
 resource "azurerm_kubernetes_cluster" "vote" {
   name                = "vote-aks"
   location            = azurerm_resource_group.group-infra.location
   resource_group_name = azurerm_resource_group.group-infra.name
-  dns_prefix          = "vote-aks"
+  dns_prefix          = var.dns_prefix
 
   default_node_pool {
     name       = "default"
     node_count = 1
-    vm_size    = "Standard_D2_v2"
+    vm_size    = var.vm_size
   }
 
   identity {
-    type = "SystemAssigned"
+    type = var.type
   }
 }
 
